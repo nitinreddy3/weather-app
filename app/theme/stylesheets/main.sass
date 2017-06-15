@@ -6,9 +6,7 @@
   margin: 0
 
 body
-  background-color: #efefef
   padding: 10px 20px
-  margin: 5% auto
   font-family: Ubuntu, Arial, sans-serif
 
 .weather-app
@@ -73,10 +71,6 @@ body
 
 .main-info-middle
   display: flex
-  width: 100%
-  justify-content: center
-  align-items: center
-  height: 50px
   div
     &:nth-of-type(1)
       margin-left: 10px
@@ -87,7 +81,9 @@ body
   clear: both
   font-weight: 700
   span
-    margin-left: 30px
+    float: left
+    display: block
+    width: 100%
 
 .input-pair:first-of-type
   margin: 5px 10px 25px
@@ -102,7 +98,20 @@ body
 
 .day-info-name, .day-info-temperature, .day-info
   text-align: center
+  display: inline-block
+  margin-right: 60px
 
+.day-info-img
+  margin-right: 60px
+.main-info-temp
+  display: inline-block
+.mainWrapper
+  width: 700px
+  margin: 0 auto
+  padding: 10px
+  border: 1px solid grey
+  border-radius: 10px
+  background-color: #efefef
 @media screen and (max-width: 650px)
   .main-info-further
     display: flex

@@ -5,7 +5,7 @@ import WeatherModal from '../modal/weatherModal';
 
 var WeatherApp = React.createClass({
     getInitialState() {
-        return {weatherData: null, loaded: false, searchCrit: 'san francisco', daysData: [] }
+        return {weatherData: null, loaded: false, searchCrit: 'pune ', daysData: [] }
     },
 
     setSearchCrit(newSearchCrit) {
@@ -42,21 +42,38 @@ var WeatherApp = React.createClass({
             today = today.getTime();
             this.state.weatherData.list.forEach((day) => {
                 var currentDate = new Date(day.dt * 1000);
-
                 if ((day.dt * 1000) > today && currentDate.getHours() === 11) {
-                    this.state.daysData.push(<Days weatherData={day}/>);
+                    this.state.daysData.push(<Days key={day.dt} weatherData={day}/>);
                 }
             });
+            let weatherData = this.state.weatherData.list[0];
+            var todaysDate = new Date(this.state.weatherData.list[0].dt * 1000);
             return (
-            <div className="container" ref="app">
-                <InfoPanel
-                    city={this.state.weatherData.city}
-                    today={this.state.weatherData.list[0]}
-                    changeHandler={this.setSearchCrit}
-                    icon={this.state.weatherData.list[0].weather[0].icon}
-                    description={this.state.weatherData.list[0].weather[0].description}
-                    ref="mainInfo"/> 
-                {this.state.daysData}
+            <div className="container-fluid" ref="app">
+                <h2 className="text-center">Weather Info App</h2>
+                <div className="mainWrapper">
+                    <InfoPanel
+                        city={this.state.weatherData.city}
+                        today={this.state.weatherData.list[0]}
+                        changeHandler={this.setSearchCrit}
+                        ref="mainInfo"/>
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <div className="main-info-city-name">{ todaysDate.toLocaleDateString('en-US', {
+                                day: '2-digit',
+                                month: 'short',
+                                hour: 'numeric'
+                            }) }</div>
+                            </div>
+                            <div className="panel-body">
+                                <img src={ "http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png" } alt="weather_icon" className="day-info-img" />
+                                <div className="day-info-temperature"><label>Temperature : </label> { Math.round(weatherData.main.temp) } °C</div>
+                                <div className="day-info-temperature"><label>Humidity : </label> {Math.round(weatherData.main.humidity)} %</div>
+                                <div className="day-info-temperature"><label>Pressure : </label> {Math.round(weatherData.main.pressure)} Pa</div>
+                            </div>
+                        </div>
+                    {this.state.daysData}
+                </div>
             </div>
         );
         } else {
