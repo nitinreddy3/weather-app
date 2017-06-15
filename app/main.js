@@ -1,4 +1,4 @@
-require('./theme/stylesheets/all.sass');
+require('./theme/stylesheets/main.sass');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import WeatherApp from './javascript/components/WeatherApp';
