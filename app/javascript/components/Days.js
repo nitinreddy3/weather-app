@@ -18,8 +18,11 @@ var Days = React.createClass({
                         alt="weather_icon"
                         className="day-info-img"/>
                     <div className="day-info-temperature">
-                        <label>Temperature :
-                        </label>
+                        {data.weather[0].description}
+                    </div>
+                    <div className="day-info-temperature">
+                        <label> Temperature :
+                        </label> 
                         {Math.round(weatherData.temp)}
                         °C</div>
                     <div className="day-info-temperature">
