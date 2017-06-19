@@ -27,6 +27,9 @@ var Days = React.createClass({
                         src={"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"}
                         alt="weather_icon"
                         className="day-info-img"/>
+                    <div className="day-info-temperature weatherStatus">
+                        {data.weather[0].description}
+                    </div>
                     <div className="day-info-temperature">
                         {data.weather[0].description}
                     </div>

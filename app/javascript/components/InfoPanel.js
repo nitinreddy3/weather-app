@@ -15,13 +15,6 @@ var InfoPanel = React.createClass({
         return (
             <div className="row">
                 <div className="col-md-6">
-                    {/*<input
-                        type="text"
-                        id="main-info-search"
-                        className="form-control main-info-search"
-                        placeholder="The weather in ..."
-                        ref="searchCrit"
-                    onChange={this.notify}/>*/}
                     <MuiThemeProvider>
                         <TextField 
                             hintText="City"
@@ -30,7 +23,6 @@ var InfoPanel = React.createClass({
                             ref="searchCrit"
                             onChange={this.notify}/>
                     </MuiThemeProvider>
-                    
                 </div>
                 <div className="col-md-6">
                     <div className="main-info-city-name">Location: {this.props.city.name}</div>

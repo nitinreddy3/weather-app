@@ -86,6 +86,9 @@ var WeatherApp = React.createClass({
                                     src={"http://openweathermap.org/img/w/" + weatherData.weather[0].icon + ".png"}
                                     alt="weather_icon"
                                     className="day-info-img"/>
+                                <div className="day-info-temperature weatherStatus">
+                                    {weatherData.weather[0].description}
+                                </div>
                                 <div className="day-info-temperature">
                                     {weatherData.weather[0].description}
                                 </div>
