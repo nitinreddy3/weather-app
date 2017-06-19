@@ -31,9 +31,6 @@ var Days = React.createClass({
                         {data.weather[0].description}
                     </div>
                     <div className="day-info-temperature">
-                        {data.weather[0].description}
-                    </div>
-                    <div className="day-info-temperature">
                         <label> Temperature :
                         </label> 
                         {Math.round(weatherData.temp)}

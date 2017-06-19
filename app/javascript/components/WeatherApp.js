@@ -90,9 +90,6 @@ var WeatherApp = React.createClass({
                                     {weatherData.weather[0].description}
                                 </div>
                                 <div className="day-info-temperature">
-                                    {weatherData.weather[0].description}
-                                </div>
-                                <div className="day-info-temperature">
                                     <label>Temperature :
                                     </label>
                                     {Math.round(weatherData.main.temp)}
