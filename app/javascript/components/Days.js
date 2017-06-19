@@ -1,9 +1,19 @@
+import Paper from 'material-ui/Paper';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+const style = {
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
+
 var Days = React.createClass({
     render() {
         var data = this.props.weatherData;
         var currentDate = new Date(data.dt * 1000);
         var weatherData = data.main;
         return (
+            <MuiThemeProvider><Paper style={style} zDepth={2}>
             <div className="panel panel-default">
                 <div className="panel-heading">
                     <div className="main-info-city-name">{currentDate.toLocaleDateString('en-US', {
@@ -38,7 +48,7 @@ var Days = React.createClass({
                         Pa
                     </div>
                 </div>
-            </div>
+            </div></Paper></MuiThemeProvider>
         );
     }
 });

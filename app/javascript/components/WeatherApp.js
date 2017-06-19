@@ -2,6 +2,14 @@ import React, {Component} from 'react';
 import Days from './Days';
 import InfoPanel from './InfoPanel';
 import WeatherModal from '../modal/weatherModal';
+import Paper from 'material-ui/Paper';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+const style = {
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
 
 var WeatherApp = React.createClass({
     getInitialState() {
@@ -64,6 +72,7 @@ var WeatherApp = React.createClass({
                             today={this.state.weatherData.list[0]}
                             changeHandler={this.setSearchCrit}
                             ref="mainInfo"/>
+                        <MuiThemeProvider><Paper style={style} zDepth={2}>
                         <div className="panel panel-default">
                             <div className="panel-heading">
                                 <div className="main-info-city-name">{todaysDate.toLocaleDateString('en-US', {
@@ -97,6 +106,7 @@ var WeatherApp = React.createClass({
                                     Pa</div>
                             </div>
                         </div>
+                        </Paper></MuiThemeProvider>
                         {this.state.daysData}
                     </div>
                 </div>
